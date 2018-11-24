@@ -1,9 +1,14 @@
 package com.placeremainder.place.basicmathlearning.Acticity;
 
 import android.app.Fragment;
+import android.app.SearchManager;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.placeremainder.place.basicmathlearning.R;
 import com.placeremainder.place.basicmathlearning.TransparentStatusBarActivity;
@@ -24,14 +29,20 @@ public class FragmentHolder extends TransparentStatusBarActivity {
     Button mul;
     @BindView(R.id.div)
     Button div;
+    @BindView(R.id.back)
+    ImageView back;
+    @BindView(R.id.img)
+    ImageView search;
+    @BindView(R.id.title)
+    public EditText title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_holder);
         ButterKnife.bind(this);
+        title.setEnabled(false);
         Fragment paymentDetailsFragment = new AdditionFragment();
         addFirstFragment(paymentDetailsFragment);
-
         add.setOnClickListener((View view) ->{
             Fragment addi = new AdditionFragment();
             addFirstFragment(addi);
@@ -49,7 +60,22 @@ public class FragmentHolder extends TransparentStatusBarActivity {
             Fragment divi = new DivitionFragment();
             addFirstFragment(divi);
         });
-
+        search.setOnClickListener((View view)->{
+            Log.d("Button","Clicked");
+            if (title.getText().toString().isEmpty())
+                title.setEnabled(true);
+            else {
+                try {
+                    title.setEnabled(false);
+                    Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+                    String term = title.getText().toString();
+                    intent.putExtra(SearchManager.QUERY, term);
+                    startActivity(intent);
+                } catch (Exception e) {
+                    // TODO: handle exception
+                }
+            }
+        });
     }
 
     @Override

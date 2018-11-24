@@ -6,12 +6,51 @@
     android:background="@color/colorPrimary"
     tools:context="com.placeremainder.place.basicmathlearning.Acticity.FragmentHolder">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:elevation="4dp"
+        android:paddingTop="15dp"
+        android:background="@color/colorSecondary"
+        android:orientation="horizontal"
+        android:id="@+id/toolbar"
+        >
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/back"
+            android:layout_marginRight="3dp"
+            />
+        <EditText
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/img"
+            android:hint="Search"
+            android:gravity="center_vertical"
+            android:textColorHint="#ffffff"
+            android:ellipsize="start"
+            android:layout_toEndOf="@+id/back"
+            android:textColor="#ffffff" />
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/s"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            />
+    </RelativeLayout>
     <LinearLayout
+        android:layout_below="@+id/toolbar"
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="35dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="5dp"

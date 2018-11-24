@@ -186,8 +186,8 @@ public class MathLearningActivity extends TransparentStatusBarActivity {
     }
 
     private void beginerLevel() {
-        randomDigit1 = randomObject.nextInt(10+correctAnswer - 5) + 5;
-        randomDigit2 = randomObject.nextInt(10+correctAnswer);
+        randomDigit1 = randomObject.nextInt(5) + 5;
+        randomDigit2 = randomObject.nextInt(9)+1;
         if(correctAnswer<5){
             question.setText(" What is " + randomDigit1 + "+" + randomDigit2 + "?    ");
             answer=randomDigit1+randomDigit2;
@@ -198,7 +198,7 @@ public class MathLearningActivity extends TransparentStatusBarActivity {
         }
 
         else if (correctAnswer>=10 && correctAnswer<15){
-            question.setText(" What is " + randomDigit1 + "*" + randomDigit2 + "?    ");
+            question.setText(" What is " + randomDigit1 + "X" + randomDigit2 + "?    ");
             answer=randomDigit1*randomDigit2;
         }
         else if (correctAnswer>=15 && correctAnswer<20){
@@ -217,7 +217,7 @@ public class MathLearningActivity extends TransparentStatusBarActivity {
             }
 
             else if (randomMath==3){
-                question.setText(" What is " + randomDigit1 + "*" + randomDigit2 + "?    ");
+                question.setText(" What is " + randomDigit1 + "X" + randomDigit2 + "?    ");
                 answer=randomDigit1*randomDigit2;
             }
             else if (randomMath==4){
